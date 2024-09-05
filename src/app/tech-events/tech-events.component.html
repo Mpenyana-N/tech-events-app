@@ -1,0 +1,16 @@
+<div class="container">
+  <h1 class="text-white">Upcoming Tech Events</h1>
+  <hr>
+  @for (event of events; track event.id) {
+  <div class="mb-4 d-flex flex-row">
+  <div  [routerLink]="['/events', event.id]" class="card thumbnail card-color text-black p-4">
+  <h2>{{event.name}}</h2>
+  <div>date: {{event.date}}</div>
+  <div>time: {{event.time}}</div>
+  <div>price: {{'R' + event.price}}</div>
+  <div>{{event?.locations?.address}} {{event?.locations?.city}} {{event?.locations?.country}}</div>
+  </div>
+
+  </div>
+  }
+</div>
