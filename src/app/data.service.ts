@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {EventModel} from "./model/event-model";
+import {EventModel, Session} from "./model/event-model";
 
 @Injectable({
   providedIn: 'root'
@@ -54,10 +54,47 @@ export class DataService {
     event4.locations.city = 'Capetown';
     event4.locations.country = 'South Africa';
 
+    const session1 = new Session();
+
+    session1.id = 1;
+    session1.name = 'Getting the most out of your dev team';
+    session1.level = 'intermediate';
+    session1.duration = '2hrs';
+    session1.presenter = 'Elon Musk';
+    session1.abstract = 'We all know that our dev teams work hard, but with \n' +
+      '          the right management they can be even more productive, without \n' +
+      '          overworking them. In this session I\'ll show you how to get the \n' +
+      '          best results from the talent you already have on staff.';
+    session1.voters = ['John', 'zipler', 'troy'];
+
+    const session2 = new Session();
+
+    session2.id = 2;
+    session2.name = 'Angular 4 Performance Metrics';
+    session2.level = 'Advanced';
+    session2.duration = '2hrs';
+    session2.presenter = 'Rob Wormald';
+    session2.abstract = 'Angular 4 Performance is hot. In this session, we\'ll see \n' +
+      '          how Angular gets such great performance by preloading data on \n' +
+      '          your users devices before they even hit your site using the \n' +
+      '          new predictive algorithms and thought reading software \n' +
+      '          built into Angular 4.';
+    session2.voters = [];
+
+
+
+    event1.sessions.push(session1);
+    event1.sessions.push(session2);
+
 
     this.events.push(event1);
     this.events.push(event2);
     this.events.push(event3);
     this.events.push(event4);
+
+
+
+
+
   }
 }

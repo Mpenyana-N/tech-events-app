@@ -13,7 +13,6 @@ import {ActivatedRoute, Router, RouterModule} from "@angular/router";
 export class TechEventsComponent implements OnInit {
 
   events!: Array<EventModel>;
-  selectedEvent!: EventModel | any;
 
   constructor(private router: Router,
               private route: ActivatedRoute,

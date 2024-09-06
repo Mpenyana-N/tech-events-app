@@ -1,0 +1,16 @@
+@if(event.sessions.length === 0) {
+<h2 class="text-white">No sessions for this event</h2>
+}
+@for (session of event.sessions; track session.id) {
+<div class="row text-white">
+  <div class="col-md-10">
+    <div class="card-color p-4 mb-5">
+      <h4>{{session.name}}</h4>
+      <h6>{{session.presenter}}</h6>
+      <span>Duration: {{session.duration}}</span><br />
+      <span>Level: {{session.level}} </span>
+      <p>{{session.abstract}}</p>
+    </div>
+  </div>
+</div>
+}
