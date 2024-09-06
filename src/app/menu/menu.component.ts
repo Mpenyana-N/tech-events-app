@@ -25,4 +25,8 @@ export class MenuComponent implements OnInit{
     this.router.navigate(['events']);
   }
 
+  navigateToCreateEvent() {
+    this.router.navigate(['createEvent']);
+  }
+
 }
