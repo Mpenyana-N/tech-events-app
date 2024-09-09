@@ -4,24 +4,32 @@
   <form  autocomplete="off" novalidate>
     <div class="form-group">
       <label for="eventName" id="eventName">Event Name:</label>
+      @if(eventField.touched && eventField.invalid) {
       <em>Required</em>
+      }
 
       <input id="name" type="text" class="form-control" placeholder="Name of your event..."
           [(ngModel)]="formEvent.name" #eventField="ngModel"  required   name="eventName"  />
     </div>
     <div class="form-group" >
       <label for="eventDate">Event Date:</label>
+      @if(eventDate.touched && eventDate.invalid) {
       <em>Required</em>
+      }
       <input [(ngModel)]="formEvent.date" #eventDate="ngModel" required name="date" id="eventDate" type="text" class="form-control" placeholder="format (mm/dd/yyyy)..." />
     </div>
     <div class="form-group">
       <label for="eventTime">Event Time:</label>
+      @if(eventTime.touched && eventTime.invalid) {
       <em>Required</em>
+      }
       <input [(ngModel)]="formEvent.time" #eventTime="ngModel" required name="time"  id="eventTime" type="text" class="form-control" placeholder="start and end time..." />
     </div>
     <div class="form-group">
       <label for="eventPrice">Event Price:</label>
+      @if(eventPrice.touched && eventPrice.invalid) {
       <em>Required</em>
+      }
       <input [(ngModel)]="formEvent.price" #eventPrice="ngModel" required name="price" id="eventPrice" type="text" type="number" class="form-control" placeholder="event price..." />
     </div>
 
