@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {DataService} from "../data.service";
 import {EventModel} from "../model/event-model";
 import {ActivatedRoute, Router, RouterModule} from "@angular/router";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'mn-tech-events',
@@ -20,7 +21,9 @@ export class TechEventsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.events = this.dataService.events;
+    this.dataService.getEvents().subscribe((next) => {
+      this.events = next;
+    });
   }
 
 }

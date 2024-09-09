@@ -23,7 +23,6 @@ export class EventDetailsComponent implements OnInit{
 
   ngOnInit(): void {
     this.event = this.dataService.getEvent(+this.route.snapshot.params['id']);
-    this.selectedEvent = this.dataService.events.find((selected) => selected.id === this.event.id);
   }
 
 

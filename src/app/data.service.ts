@@ -1,15 +1,35 @@
 import {Injectable} from '@angular/core';
 import {EventModel, Session} from "./model/event-model";
+import {Observable, of} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  events!: Array<EventModel>;
+  private events!: Array<EventModel>;
+
+  getEvents() : Observable<Array<EventModel>> {
+    return of(this.events);
+  }
 
   getEvent(id: number | undefined) {
     return this.events.find((ev) => ev.id === id);
+  }
+
+  addNewEvent(newEvent: EventModel) : Observable<EventModel> {
+    let id = 0;
+    for (let event of this.events) {
+      if (event.id) {
+        if (event.id > id) {
+          id = event.id
+        }
+      }
+    }
+    newEvent.id = id +1;
+    this.events.push(newEvent);
+    return of(newEvent);
+
   }
 
   constructor() {

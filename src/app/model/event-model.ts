@@ -5,7 +5,7 @@ export class EventModel {
   time?: string;
   price?: number;
   image?: string;
-  locations?: typeof LocationAddress | any = LocationAddress;
+  locations = new LocationAddress();
   sessions = new Array<Session>();
 }
 
